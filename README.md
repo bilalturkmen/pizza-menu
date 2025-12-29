@@ -3,16 +3,16 @@
 https://pizza-menux.netlify.app/
 
 <div>
-  A course project for React training: Online pizza menu listing and ordering application.
+  A course project for React JS training: Online pizza menu listing and ordering application.
 </div>
 
 ## 👍 My Challenges:
 
 - Tailwind CSS has been applied.
+- Separated components were created.
 - "Add to Favorites" button added.
-- Separate react components created.
-- Pop-up modal implemented.
-- And I worked to provide a good user experience.
+- Pop-up modal window implemented.
+- And i worked to provide a good user experience.
 
 ![](./public/screenshott.png)
 
