@@ -3,7 +3,7 @@
 https://pizza-menux.netlify.app/
 
 <div>
-  A project from a React JS training: Online pizza menu and ordering app.
+  A project from a React JS training: Online pizza menu and ordering app
 </div>
 
 ## 👍 My Challenges:
