@@ -3,7 +3,7 @@
 https://pizza-menux.netlify.app/
 
 <div>
-  A project from a React JS training: Online pizza menu and ordering app.
+  A project from a React JS training: Online pizza menu and ordering application.
 </div>
 
 ## 👍 My Challenges:
@@ -12,14 +12,14 @@ https://pizza-menux.netlify.app/
 - Separated components were created.
 - "Add to Favorites" button added.
 - Pop-up modal window implemented.
-- And i worked to provide a good user experience.
+- And efforts were made to provide a good user experience.
 
 ![](./public/screenshott.png)
 
 ## 🎉 Build With:
 
-- React + Tailwind CSS
-- Semantic HTML5 markup
-- Css Flexbox
+- React JS + Tailwind CSS
+- Semantic HTML markup
+- CSS Flexbox
 - Mobile-first workflow
-- CSS custom properties
+- Custom CSS properties
