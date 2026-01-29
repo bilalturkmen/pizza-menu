@@ -1,9 +1,9 @@
-<h1>Pizza Menu</h1>
+<h1>Fast JSX Pizza</h1>
 
 https://pizza-menux.netlify.app/
 
 <div>
-  A project from a React JS training: Online pizza menu and ordering application.
+  A React JS training project about components, props, jsx.
 </div>
 
 ## 👍 My Challenges:
@@ -12,7 +12,7 @@ https://pizza-menux.netlify.app/
 - Separated components were created.
 - "Add to Favorites" button added.
 - Pop-up modal window implemented.
-- And efforts were made to provide a good user experience.
+- And efforts were made to provide a good user experience 🙂
 
 ![](./public/screenshott.png)
 
