@@ -1,9 +1,9 @@
-<h1>Fast JSX Pizza</h1>
+<h1>Fast Jsx Pizza</h1>
 
 https://fast-jsx-pizza.netlify.app/
 
 <div>
-  Training project on React JS components and props.
+  A React project demonstrating reusable components and props by building a dynamic pizza ordering interface.
 </div>
 
 ## 👍 My Challenges:
