@@ -2,9 +2,7 @@
 
 https://fast-jsx-pizza.netlify.app/
 
-<div>
-  A React project demonstrating reusable components and props by building a dynamic pizza ordering interface.
-</div>
+A React project demonstrating reusable `components` and `props` by building a dynamic pizza ordering interface.
 
 ## 👍 My Challenges:
 
