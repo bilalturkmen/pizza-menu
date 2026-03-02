@@ -1,4 +1,4 @@
-export const OrderIcon = () => (
+const OrderIcon = () => (
   <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
@@ -19,3 +19,5 @@ export const OrderIcon = () => (
     />
   </svg>
 );
+
+export default OrderIcon;

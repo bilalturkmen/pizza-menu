@@ -1,4 +1,4 @@
-export const FavorIcon = () => (
+const FavorIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -16,3 +16,5 @@ export const FavorIcon = () => (
     />
   </svg>
 );
+
+export default FavorIcon;

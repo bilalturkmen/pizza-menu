@@ -1,52 +1,53 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+/* Soft, organic serif for that "hand-kneaded" feel */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300..600&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-playfair: "Playfair Display", serif;
+  --font-fraunces: "Fraunces", serif;
+  --font-inter: "Inter", sans-serif;
+
+  --color-brand-primary: #fcfaf7;
+  /* Creamy flour-like white */
+  --color-brand-accent: #c2410c;
+  /* Rich tomato terracotta */
+  --color-brand-dark: #2d2a28;
+  /* Wood-fired charcoal */
 }
 
 @layer base {
-  /* body {
-    background-color: var(--color-amber-50);
-  } */
-}
-
-body {
-  @apply bg-amber-100/50 text-stone-600 flex justify-center;
+  body {
+    @apply bg-[var(--color-brand-primary)] text-stone-800 antialiased font-[family-name:var(--font-inter)];
+  }
 }
 
 @layer components {
-  .header h1 {
-    text-align: center;
-    position: relative;
-    display: inline-block;
+  .header-ornament {
+    @apply relative inline-block px-12;
+  }
 
-    line-height: 0.7em;
-    min-height: 1.2em;
-    border-radius: 0.5rem;
+  @variant md {
+
+    .header-ornament::before,
+    .header-ornament::after {
+      content: "";
+      @apply absolute h-px w-10 bg-stone-300 top-1/2 -translate-y-1/2;
+    }
+
+    .header-ornament::before {
+      @apply right-full mr-4;
+    }
+
+    .header-ornament::after {
+      @apply left-full ml-4;
+    }
   }
-  .header h1::before,
-  .header h1::after {
-    content: "";
-    height: 3px;
-    width: 3rem;
-    background-color: #57534e;
-    position: absolute;
-    top: calc(50% - 1px);
+
+  /* Softening the cards to match the font */
+  .pizza-card {
+    @apply flex gap-6 p-5 rounded-2xl border border-stone-200/50 bg-white/80 transition-all hover:shadow-xl hover:-translate-y-1;
   }
-  .header h1::before {
-    left: 100%;
-    margin-left: 1rem;
-  }
-  .header h1::after {
-    right: 100%;
-    margin-right: 1rem;
-  }
-  .sold-out {
-    color: #a8a29e;
-  }
-  .sold-out img {
-    filter: grayscale();
-    opacity: 0.75;
-  }
+}
+
+.sold-out {
+  @apply grayscale opacity-60 contrast-75;
 }

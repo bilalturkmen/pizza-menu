@@ -1,4 +1,4 @@
-export const CloseIcon = () => (
+const CloseIcon = () => (
   <svg
     className="w-5 h-5"
     aria-hidden="true"
@@ -17,3 +17,5 @@ export const CloseIcon = () => (
     />
   </svg>
 );
+
+export default CloseIcon;

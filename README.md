@@ -2,7 +2,7 @@
 
 https://fast-jsx-pizza.netlify.app/
 
-A React project demonstrating `components` and `props` by building a dynamic pizza ordering interface.
+A React project demonstrating JSX `components` and `props` by building a dynamic pizza ordering interface.
 
 ## 👍 My Challenges:
 

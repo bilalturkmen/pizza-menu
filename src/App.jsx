@@ -1,22 +1,24 @@
-import PizzaMenu from "./components/pizzamenu";
-import Footer from "./components/footer";
+import PizzaMenu from "./components/PizzaMenu";
+import Footer from "./components/Footer";
 
-const Header = () => (
-  <header className="font-playfair  text-4xl md:text-5xl lg:text-6xl font-bold text-amber-300 header">
-    <h1 className="bg-stone-600 mt-3 p-3">Fast JSX Pizza </h1>
-  </header>
-);
-
-function App() {
+function Header() {
   return (
-    <div className="min-h-screen bg-amber-50 lg:w-240 md:w-210">
-      <div className="flex flex-col items-center justify-between  p-3 border-r border-l border-stone-200/50">
-        <Header />
-        <PizzaMenu />
-        <Footer />
-      </div>
-    </div>
+    <header className="py-10 text-center bg-stone-800 text-amber-50">
+      <h1 className="header-ornament text-4xl md:text-6xl font-fraunces font-black uppercase tracking-tighter">
+        Fast JSX Pizza
+      </h1>
+    </header>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <div className="w-full max-w-5xl min-h-screen flex flex-col border-x border-stone-200 bg-white/30 shadow-2xl mx-auto">
+      <Header />
+      <main className="flex-1 flex flex-col items-center py-12 px-6">
+        <PizzaMenu />
+      </main>
+      <Footer />
+    </div>
+  );
+}
