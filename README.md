@@ -12,7 +12,7 @@ A React project demonstrating JSX `components` and `props` by building a dynamic
 - Pop-up modal window implemented.
 - And efforts were made to provide a good user experience 🙂
 
-![](./public/screenshott.png)
+![](./public/screenshot.png)
 
 ## 🎉 Build With:
 
