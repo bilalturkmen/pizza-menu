@@ -1,5 +1,5 @@
-import PizzaMenu from "./components/PizzaMenu";
-import Footer from "./components/Footer";
+import PizzaMenu from "./components/pizzamenu";
+import Footer from "./components/footer";
 
 function Header() {
   return (
