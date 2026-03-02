@@ -33,7 +33,7 @@ function OrderButton({ closeHour }) {
             >
               <CloseIcon />
             </button>
-            <h3 className="text-2xl font-playfair font-bold mb-4">
+            <h3 className="text-2xl font-fraunces font-bold mb-4">
               Order Terms
             </h3>
             <div className="text-stone-600 text-sm leading-relaxed space-y-4 max-h-[40vh] overflow-y-auto pr-2 text-left">

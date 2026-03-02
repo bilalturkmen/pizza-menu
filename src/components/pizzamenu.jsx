@@ -35,7 +35,7 @@ function PizzaItem({ pizza }) {
 
       <div className="flex flex-col flex-1">
         <div className="flex justify-between items-start">
-          <h3 className="text-xl font-playfair font-bold text-stone-800">
+          <h3 className="text-xl font-fraunces font-bold text-stone-800">
             {name}
           </h3>
           <button
@@ -87,7 +87,7 @@ export default function PizzaMenu() {
   return (
     <section className="w-full">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-playfair font-black text-stone-800 uppercase ">
+        <h2 className="text-4xl md:text-5xl font-fraunces font-black text-stone-800 uppercase ">
           Our Menu
         </h2>
         <p className="mt-6 text-stone-600 max-w-lg mx-auto leading-relaxed">
