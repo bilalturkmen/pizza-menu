@@ -1,6 +1,6 @@
 import FooterAttribution from "../assets/FooterAttribution";
 
-function Footer() {
+export default function Footer() {
   const hour = new Date().getHours();
   const openHour = 10;
   const closeHour = 22;
@@ -24,5 +24,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

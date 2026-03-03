@@ -27,7 +27,6 @@ function PizzaItem({ pizza, quantity, onAdd, onRemove }) {
           {ingredients}
         </p>
 
-        {/* --- FIXED ACTION AREA --- */}
         <div className="flex justify-end items-center h-12 mt-auto">
           {quantity > 0 ? (
             <div className="qty-controls">

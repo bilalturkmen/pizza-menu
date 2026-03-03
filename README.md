@@ -6,7 +6,7 @@ A React project demonstrating jsx `components` and `props` by building a dynamic
 
 ## 👍 My Challenges:
 
-- **update** 'Add to Cart' and 'Shopping Cart' buttons have been added.
+- **\*Update** 'Add to Cart' and 'Shopping Cart' buttons have been added.
 - Tailwind CSS has been applied.
 - Separated components were created.
 - Pop-up modal window implemented.

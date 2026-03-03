@@ -2,7 +2,7 @@ import { useState } from "react";
 import CloseIcon from "../assets/CloseIcon";
 import OrderIcon from "../assets/OrderIcon";
 
-function Header({ totalItems, totalPrice }) {
+export default function Header({ totalItems, totalPrice }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function toggleModal() {
@@ -55,7 +55,8 @@ function Header({ totalItems, totalPrice }) {
                 ${totalPrice.toFixed(2)}.
               </span>
               <span className="flex">
-                By clicking accept, you agree to our artisan delivery terms.
+                By clicking Accept, you agree to our product delivery terms and
+                conditions.
               </span>
             </p>
             <button
@@ -70,5 +71,3 @@ function Header({ totalItems, totalPrice }) {
     </>
   );
 }
-
-export default Header;
