@@ -1,69 +1,60 @@
-import { useState, useEffect } from "react";
-import { pizzaData } from "../data/data";
-import FavorIcon from "../assets/FavorIcon";
+import { pizzaData } from "../data/data.js";
 
-function PizzaItem({ pizza }) {
+function PizzaItem({ pizza, quantity, onAdd, onRemove }) {
   const { name, ingredients, price, soldOut, photoName } = pizza;
-  const [isAdded, setIsAdded] = useState(false);
-
-  useEffect(
-    function () {
-      if (isAdded) {
-        const timer = setTimeout(() => setIsAdded(false), 1500);
-        return () => clearTimeout(timer);
-      }
-    },
-    [isAdded],
-  );
 
   return (
-    <li
-      className={`pizza-card ${soldOut ? "opacity-70 md:order-0 order-1" : ""}`}
-    >
-      <div className="relative shrink-0">
+    <li className={`pizza-card ${soldOut ? "sold-out" : ""}`}>
+      <div className="relative shrink-0 overflow-hidden rounded-xl">
         <img
           src={photoName}
           alt={name}
-          className={`h-32 w-32 rounded-lg object-cover ${soldOut ? "grayscale" : "shadow-sm"}`}
+          className="h-32 w-32 md:h-36 md:w-36 object-cover"
         />
-        {soldOut && (
-          <span className="absolute inset-0 flex items-center justify-center bg-black/20 text-white font-bold uppercase text-xs rounded-lg backdrop-blur-[1px]">
-            Sold Out
-          </span>
-        )}
       </div>
 
       <div className="flex flex-col flex-1">
         <div className="flex justify-between items-start">
-          <h3 className="text-xl font-fraunces font-bold text-stone-800">
+          <h3 className="text-base font-fraunces font-bold text-stone-900">
             {name}
           </h3>
-          <button
-            onClick={() => !soldOut && setIsAdded(true)}
-            className={`p-1.5 rounded-full transition-colors cursor-pointer ${
-              soldOut
-                ? "cursor-not-allowed opacity-20"
-                : "hover:bg-amber-100 text-stone-400 hover:text-amber-600"
-            }`}
-          >
-            <FavorIcon fill={isAdded ? "currentColor" : "none"} />
-          </button>
+          <span className="font-bold text-brand-tomato text-lg">
+            ${price.toFixed(2)}
+          </span>
         </div>
 
-        <p className="text-sm text-stone-500 italic flex-1 my-2 leading-snug">
+        <p className="text-sm text-stone-500 italic flex-1 my-2 leading-tight">
           {ingredients}
         </p>
 
-        <div className="flex justify-between items-center">
-          <span
-            className={`font-mono font-bold ${soldOut ? "text-stone-400 line-through" : "text-stone-700 text-lg"}`}
-          >
-            {soldOut ? "OUT" : `$${price.toFixed(2)}`}
-          </span>
-          {isAdded && (
-            <span className="text-[10px] font-bold uppercase text-amber-600 animate-bounce">
-              Added!
-            </span>
+        {/* --- FIXED ACTION AREA --- */}
+        <div className="flex justify-end items-center h-12 mt-auto">
+          {quantity > 0 ? (
+            <div className="qty-controls">
+              <button
+                onClick={() => onRemove(name)}
+                aria-label="Decrease quantity"
+              >
+                −
+              </button>
+              <span className="w-8 text-center font-bold text-sm">
+                {quantity}
+              </span>
+              <button
+                onClick={() => onAdd(name)}
+                aria-label="Increase quantity"
+              >
+                +
+              </button>
+            </div>
+          ) : (
+            <button
+              disabled={soldOut}
+              onClick={() => onAdd(name)}
+              className="add-btn min-w-30"
+            >
+              {soldOut ? "Sold Out" : "Add to Cart"}
+            </button>
           )}
         </div>
       </div>
@@ -71,38 +62,20 @@ function PizzaItem({ pizza }) {
   );
 }
 
-function PizzaList({ pizzas }) {
+export default function PizzaMenu({ cart, onAdd, onRemove }) {
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none">
-      {pizzas.map(function (pizza) {
-        return <PizzaItem key={pizza.name} pizza={pizza} />;
-      })}
-    </ul>
-  );
-}
-
-export default function PizzaMenu() {
-  const pizzas = pizzaData;
-
-  return (
-    <section className="w-full">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-fraunces font-black text-stone-800 uppercase ">
-          Our Menu
-        </h2>
-        <p className="mt-6 text-stone-600 max-w-lg mx-auto leading-relaxed">
-          Authentic Italian cuisine. <br></br>All from our stone oven, all
-          organic, all delicious.
-        </p>
-      </div>
-
-      {pizzas.length > 0 ? (
-        <PizzaList pizzas={pizzas} />
-      ) : (
-        <p className="text-center italic text-stone-400">
-          Our chefs are preparing the dough. Check back soon!
-        </p>
-      )}
+    <section className="menu-section">
+      <ul className="pizza-list">
+        {pizzaData.map((pizza) => (
+          <PizzaItem
+            key={pizza.name}
+            pizza={pizza}
+            quantity={cart[pizza.name] || 0}
+            onAdd={onAdd}
+            onRemove={onRemove}
+          />
+        ))}
+      </ul>
     </section>
   );
 }

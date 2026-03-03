@@ -1,53 +1,96 @@
-/* Soft, organic serif for that "hand-kneaded" feel */
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300..600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..600&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-fraunces: "Fraunces", serif;
   --font-inter: "Inter", sans-serif;
 
-  --color-brand-primary: #fcfaf7;
-  /* Creamy flour-like white */
-  --color-brand-accent: #c2410c;
-  /* Rich tomato terracotta */
-  --color-brand-dark: #2d2a28;
-  /* Wood-fired charcoal */
+  --color-brand-cream: #fdfcfb;
+  --color-brand-tomato: #c2410c;
+  --color-brand-charcoal: #2d2a28;
+  --shadow-cart-footer: 0 -10px 20px rgba(0, 0, 0, 0.03);
 }
 
+/* --- Base Layout --- */
 @layer base {
   body {
-    @apply bg-[var(--color-brand-primary)] text-stone-800 antialiased font-[family-name:var(--font-inter)];
+    @apply bg-brand-cream text-stone-800 antialiased font-inter m-0 min-h-screen flex justify-center;
   }
 }
 
 @layer components {
-  .header-ornament {
-    @apply relative inline-block px-12;
+
+  /* --- App Container --- */
+  .app-layout {
+    @apply w-full max-w-5xl bg-white shadow-2xl min-h-screen flex flex-col border-x border-stone-200/50;
   }
 
-  @variant md {
-
-    .header-ornament::before,
-    .header-ornament::after {
-      content: "";
-      @apply absolute h-px w-10 bg-stone-300 top-1/2 -translate-y-1/2;
-    }
-
-    .header-ornament::before {
-      @apply right-full mr-4;
-    }
-
-    .header-ornament::after {
-      @apply left-full ml-4;
-    }
+  /* --- Header --- */
+  .header-container {
+    @apply p-6 flex flex-col md:flex-row items-center justify-between border-b border-stone-100 bg-white sticky top-0 z-40;
   }
 
-  /* Softening the cards to match the font */
+  .header-container h1 {
+    @apply font-fraunces text-4xl font-bold tracking-tight text-brand-charcoal;
+  }
+
+  .cart-badge {
+    @apply mt-4 md:mt-0 bg-stone-100 px-4 py-2 rounded-full font-bold text-sm text-stone-600 border border-stone-200;
+  }
+
+  /* --- Pizza Card Grid --- */
+  .menu-section {
+    @apply p-6 flex-1;
+  }
+
+  .pizza-list {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 list-none p-0 m-0;
+  }
+
   .pizza-card {
-    @apply flex gap-6 p-5 rounded-2xl border border-stone-200/50 bg-white/80 transition-all hover:shadow-xl hover:-translate-y-1;
+    @apply flex gap-6 p-5 rounded-2xl border border-stone-100 bg-stone-50/30 transition-all duration-300 hover:shadow-lg hover:bg-white relative overflow-hidden;
   }
-}
 
-.sold-out {
-  @apply grayscale opacity-60 contrast-75;
+  .pizza-card img {
+    @apply h-32 w-32 md:h-36 md:w-36 rounded-xl object-cover shadow-sm transition-transform duration-500;
+  }
+
+  .pizza-card:hover img {
+    @apply scale-105;
+  }
+
+  /* --- Sold Out State --- */
+  .sold-out {
+    @apply opacity-60 grayscale-[0.8] pointer-events-none;
+  }
+
+  /* --- Quantity Controls & Buttons --- */
+  .qty-controls {
+    @apply flex items-center gap-4 bg-white border border-stone-200 rounded-full px-3 py-1 shadow-sm;
+  }
+
+  .qty-controls button {
+    @apply w-6 h-6 flex items-center justify-center rounded-full hover:bg-stone-100 transition-colors font-bold text-lg cursor-pointer;
+  }
+
+  .add-btn {
+    @apply bg-brand-charcoal text-white px-3 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-700 transition-all active:scale-95 cursor-pointer;
+  }
+
+  /* --- Footer Order Bar --- */
+  .footer-bar {
+    @apply sticky bottom-0 z-50 bg-white/80 backdrop-blur-md border-t border-stone-200 p-6;
+  }
+
+  .footer-content {
+    @apply max-w-4xl mx-auto flex items-center justify-between gap-6;
+  }
+
+  .order-summary strong {
+    @apply font-fraunces text-2xl text-brand-tomato;
+  }
+
+  .checkout-btn {
+    @apply bg-brand-tomato text-white px-10 py-3 rounded-xl font-bold uppercase text-sm tracking-widest hover:brightness-110 disabled:grayscale disabled:opacity-30 transition-all cursor-pointer shadow-lg;
+  }
 }
