@@ -9,6 +9,10 @@ export default function Header({ totalItems, totalPrice }) {
     setIsModalOpen((prev) => !prev);
   }
 
+  function pluralize(count, word) {
+    return count === 1 ? word : word + "s";
+  }
+
   return (
     <>
       <header className="header-container">
@@ -49,8 +53,8 @@ export default function Header({ totalItems, totalPrice }) {
             </h3>
             <p className="text-stone-600 text-sm leading-relaxed mb-6 font-bold">
               You are about to order{" "}
-              <span className="text-brand-tomato">{totalItems}</span> pizzas for
-              a total of{" "}
+              <span className="text-brand-tomato">{totalItems}</span>{" "}
+              {pluralize(totalItems, "pizza")} for a total of{" "}
               <span className="text-brand-tomato">
                 ${totalPrice.toFixed(2)}.
               </span>
